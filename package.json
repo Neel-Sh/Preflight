@@ -1,0 +1,50 @@
+{
+  "name": "preflight-evidence",
+  "version": "0.1.0",
+  "description": "A local evidence gate for human- and agent-written code.",
+  "type": "module",
+  "bin": {
+    "preflight": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup && node scripts/make-executable.mjs",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm typecheck && pnpm test && pnpm build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "git",
+    "cli",
+    "developer-tools",
+    "code-review",
+    "testing",
+    "ai-agents"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@clack/prompts": "^1.0.1",
+    "commander": "^14.0.3",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.5",
+    "yaml": "^2.9.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/picomatch": "^4.0.3",
+    "tsup": "^8.5.1",
+    "tsx": "^4.20.6",
+    "typescript": "^6.0.3",
+    "vitest": "^3.2.7"
+  }
+}

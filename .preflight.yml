@@ -1,0 +1,49 @@
+version: 1
+includeUntracked: true
+concurrency: 2
+criticalPaths: []
+surfaces: []
+checks:
+  - id: typecheck
+    label: Type check
+    when:
+      changed:
+        - "**/*.{js,jsx,mjs,cjs,ts,tsx,json}"
+        - package.json
+        - "*lock*"
+    run:
+      - pnpm
+      - run
+      - typecheck
+    timeout: 2m
+    blocking: true
+    proves: []
+  - id: test
+    label: Tests
+    when:
+      changed:
+        - "**/*.{js,jsx,mjs,cjs,ts,tsx,json}"
+        - package.json
+        - "*lock*"
+    run:
+      - pnpm
+      - run
+      - test
+    timeout: 5m
+    blocking: true
+    proves: []
+  - id: build
+    label: Build
+    when:
+      changed:
+        - "**/*.{js,jsx,mjs,cjs,ts,tsx,json}"
+        - package.json
+        - "*lock*"
+    run:
+      - pnpm
+      - run
+      - build
+    timeout: 10m
+    blocking: true
+    proves: []
+contracts: []
