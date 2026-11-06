@@ -4,3 +4,20 @@ coverage/
 .preflight/
 *.log
 .DS_Store
+
+# Local machine files and credentials
+Thumbs.db
+*.swp
+*.swo
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.p12
+*.p8
+*.mobileprovision
+*.provisionprofile
+
+# Node dependencies and output
+npm-debug.log*

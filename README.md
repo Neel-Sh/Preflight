@@ -12,10 +12,10 @@ If the workspace changes during verification, the result is **Stale** instead of
 
 ## Quick start
 
-Requirements: Git and Node.js 20 or newer.
+Requirements: Git, Node.js 20 or newer, and pnpm. Install dependencies from the committed `pnpm-lock.yaml`.
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm build
 pnpm link --global
 
@@ -124,7 +124,7 @@ See [MVP.md](./MVP.md) for the product direction and roadmap.
 ## Development
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm check
 pnpm dev -- check --branch --quick
 ```
@@ -143,3 +143,7 @@ Preflight is an early v0.1. The core local workflow works today; caching, SARIF,
 ## License
 
 MIT
+
+## Repository map and contributions
+
+`src/` contains the CLI and evidence engine, `tests/` covers policies and Git scopes, and `scripts/make-executable.mjs` prepares the built CLI entry point. Generated receipts and build output should remain local. See [Contributing](CONTRIBUTING.md) for the check command and review expectations.
